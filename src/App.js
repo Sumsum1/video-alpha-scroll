@@ -11,42 +11,78 @@ function App() {
 
   const refDiv = useRef();
 
-  const [scrollPos, setScrollPos] = useState({scrollX: 0, scrollY: 0});
-  const [mousePos, setMousePos] = useState({posX: 0, posY: 0});
+  // const [scrollPos, setScrollPos] = useState({scrollX: 0, scrollY: 0});
+  // const [mousePos, setMousePos] = useState({posX: 0, posY: 0});
 
   
 
-  const handleScroll = (e) => {  //Temporary name!!
-    const x = e.scrollX;
-    const y = e.scrollY;
-    setScrollPos({...scrollPos ,scrollX: window.pageXOffset, scrollY: window.pageYOffset});
-    console.log(scrollPos)
-  }
+  // const handleScroll = (e) => {  //Temporary name!!
+  //   const x = e.scrollX;
+  //   const y = e.scrollY;
+  //   setScrollPos({...scrollPos ,scrollX: window.pageXOffset, scrollY: window.pageYOffset});
+  //   console.log(scrollPos)
+  // }
 
-  const onMouseDown = (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    setMousePos({...mousePos, posX: x, posY: y})
-    console.log(mousePos)
-  }
+  // const onMouseDown = (e) => {
+  //   const x = e.clientX;
+  //   const y = e.clientY;
+  //   setMousePos({...mousePos, posX: x, posY: y})
+  //   console.log(mousePos)
+  // }
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    console.log(scrollPos);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   console.log(scrollPos);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
+    const [scrollY, setScrollY] = useState(0);
+    const [scrollX, setScrollX] = useState(0);
+
+    const [posX, setPosX] = useState(0);
+    const [posY, setPosY] = useState(0);
+
+    const onMouseMove = (e) => {
+      const currentYPos = e.clientY;
+      setPosY(currentYPos);
+      setScrollY(posY)
+      console.log('scrollY: ', scrollY);
+    }
+
+    const watchScroll = () => {
+      window.addEventListener("scroll", logit);
+    }
+  
+    function logit() {
+      setScrollY(window.pageYOffset);
+      setScrollX(window.pageXOffset);
+      //console.log('scrollY: ', scrollY)
+    }
+  
+    useEffect(() => {
+      watchScroll();
+      return () => {
+        window.removeEventListener("scroll", logit);
+      };
+      
+    }, [scrollY, scrollX]);
+
+    // useEffect(() => {
+      
+    //   setScrollY(setPosY)
+    // })
 
 
   return (
 
 
 
-    <div ref={refDiv} onClick={onMouseDown} onScroll={handleScroll}>
+    <div onMouseMove={onMouseMove}>
       <img src={hub}/>
+      <div className="fixed-center">Scroll position: {scrollY}px</div>
     </div>
 
   );
