@@ -1,66 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useRef, useEffect, useCallback, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import hub from './Back_lines.png';
-
-
+import ReactPlayer from 'react-player'
+import { Video } from 'remotion';
+import ScrollContainer from "react-indiana-drag-scroll";
+import  useDraggableScroll from 'use-draggable-scroll';
+//import intro from './public/Bathroom_1_PP-R_all.mp4';
 
 
 
 function App() {
 
-  //const refDiv = useRef();
+    const backgroundRef = useRef(null);
+
+    const { onMouseDown } = useDraggableScroll(backgroundRef);
+
+    return (
+      <div>
+        <ScrollContainer className="container">
+            <img className='backgroundImage'  src={hub} />
+        </ScrollContainer>
+      </div>
+    );
 
 
-    const [scrollY, setScrollY] = useState(0);
-    const [scrollX, setScrollX] = useState(0);
-
-    const [posX, setPosX] = useState(0);
-    const [posY, setPosY] = useState(0);
-
-    const onMouseMove = (e) => {
-      const currentYPos = e.clientY;
-      const currentXPoS = e.clientX;
-      setPosY(currentYPos);
-      setPosX(currentXPoS )
-      window.scrollTo(posX, posY);
-      console.log('posY: ', posY);
-    }
-
-    const watchScroll = () => {
-      window.addEventListener("scroll", logit);
-    }
-  
-    function logit() {
-      setScrollY(window.pageYOffset);
-      setScrollX(window.pageXOffset);
-      //console.log('scrollY: ', scrollY)
-    }
-  
-    useEffect(() => {
-      watchScroll();
-      return () => {
-        window.removeEventListener("scroll", logit);
-      };
-      
-    }, [scrollY, scrollX]);
-
-    // useEffect(() => {
-      
-    //   setScrollY(setPosY)
-    // })
-
-
-  return (
-
-
-
-    <div onMouseMove={onMouseMove}>
-      <img src={hub}/>
-      <div className="fixed-center">Scroll position: {scrollY}px</div>
-    </div>
-
-  );
 }
 
 export default App;

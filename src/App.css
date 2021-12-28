@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  position: absolute;
 }
 
 body{
@@ -7,9 +9,21 @@ body{
 }
 
 .fixed-center {
-  position: fixed;
+  /* position: fixed;
   top: 50%;
-  left: 40%;
+  left: 40%; */
+  position: absolute;
+  right: 50%;
+  top: 50%;
+}
+
+.container{
+  height: calc(100vh - 20px);
+}
+
+.backgroundImage{
+  min-width: 3000px;
+  width: 100vw;
 }
 
 .App-logo {
