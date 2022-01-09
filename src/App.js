@@ -17,11 +17,10 @@ function App() {
     const movieRef = useRef();
 
     useEffect(() => {
-        //movieRef.current.play();
-        if (play1) {
-          movieRef.current.play();
-        }
-       
+      if (play1) {
+        movieRef.current.play();
+      }
+         
     }, [play1])
 
 
@@ -48,7 +47,6 @@ function App() {
         setPlay1(true);
         console.log('up')
         console.log(play1)
-        //movieRef.current.play();
       }
       if (e.deltaY < 0) {
         console.log('down')
@@ -62,8 +60,11 @@ function App() {
       <div className='container-video'>
           <video 
             className='video-room' 
-            onWheel={onScrollDirection}   
-            controls  ref={movieRef} src={movie} 
+            onWheel={onScrollDirection}  
+            muted={true} 
+            controls  
+            ref={movieRef} 
+            src={movie} 
             onTimeUpdate={onTimeUpdate}
             
             
