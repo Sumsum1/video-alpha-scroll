@@ -5,9 +5,9 @@
 }
 
 .container{
-  overflow: scroll;
+  overflow: none;
   background-color: coral;
-  height: 300px;
+
 }
 
 body{

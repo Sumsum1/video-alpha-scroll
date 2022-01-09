@@ -1,6 +1,13 @@
-.container{
-    overflow: scroll;
-    border: solid red 2px;
-    background-color: coral;
-    height: 1500px;
+body{
+    width: 100wh;
+}
+
+.container-video{
+    width: 100wh;
+    width: 1920px;
+    overflow: none;
+  }
+
+  .video-room{
+      width: 100%;
   }
