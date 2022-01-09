@@ -4,6 +4,12 @@
   position: absolute;
 }
 
+.container{
+  overflow: scroll;
+  background-color: coral;
+  height: 300px;
+}
+
 body{
   overflow: hidden;
 }
@@ -18,12 +24,23 @@ body{
 }
 
 .container{
-  height: calc(100vh - 20px);
+  height: 100vh;
+  position: relative;
 }
 
 .backgroundImage{
   min-width: 3000px;
   width: 100vw;
+}
+
+.product{
+  position: relative;
+  top: -800px;
+  left: 300px;
+}
+
+.root{
+  height: 1600px;
 }
 
 .App-logo {
