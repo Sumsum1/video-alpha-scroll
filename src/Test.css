@@ -1,5 +1,6 @@
 body{
     width: 100wh;
+    overflow: hidden;
 }
 
 .container-video{
@@ -9,5 +10,15 @@ body{
   }
 
   .video-room{
-      width: 100%;
+      height: 100vh;
+      width: 800px;
+  }
+
+  h1{
+    position: absolute;
+    left: 200px;
+    bottom: 300px;
+    color: red;
+    font-size: 100px;
+    z-index: -1;
   }

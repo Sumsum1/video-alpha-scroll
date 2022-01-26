@@ -19,32 +19,43 @@ function App() {
     useEffect(() => {
       if (play1) {
         movieRef.current.play();
+
+        //Pause
+        // setTimeout(() => {
+        //   movieRef.current.pause();
+        // })
       }
          
     }, [play1])
 
 
 
-    const onTimeUpdate = (e) => {
+    // const onTimeUpdate = (e) => {
       
-        if (e.target.currentTime >= 8.8) {
-          setReverse(true);
-        }
-        if (reverse) {
-          const c = movieRef.current.currentTime;
-          movieRef.current.currentTime = c - 0.05;
-        }
-        if (movieRef.current.currentTime <= 0) {
-          setReverse(false);
-          const c = movieRef.current.currentTime;
-          movieRef.current.currentTime = c + 0.05;
-        } 
-    }
+    //     if (e.target.currentTime >= 8.8) {
+    //       setReverse(true);
+    //     }
+    //     if (reverse) {
+    //       const c = movieRef.current.currentTime;
+    //       movieRef.current.currentTime = c - 0.05;
+    //     }
+    //     if (movieRef.current.currentTime <= 0) {
+    //       setReverse(false);
+    //       const c = movieRef.current.currentTime;
+    //       movieRef.current.currentTime = c + 0.05;
+    //     } 
+    // }
+
+    const onTimeUpdate = (e) => {
+        const c = movieRef.current.currentTime;
+        movieRef.current.currentTime = c + 0.05;
+  }
 
 
     const onScrollDirection = (e) => {
       if (e.deltaY > 0) {
-        setPlay1(true);
+        onTimeUpdate();
+        //setPlay1(true);
         console.log('up')
         console.log(play1)
       }
@@ -60,9 +71,9 @@ function App() {
       <div className='container-video'>
           <video 
             className='video-room' 
-            onWheel={onScrollDirection}  
+            onWheel={onTimeUpdate}  
             muted={true} 
-            controls  
+            //controls  
             ref={movieRef} 
             src={movie} 
             onTimeUpdate={onTimeUpdate}
@@ -71,6 +82,7 @@ function App() {
       >
             
           </video>
+          {/* <h1>dfgdrtgstybhryrtnrshsrty</h1> */}
       </div>
   )
 }
