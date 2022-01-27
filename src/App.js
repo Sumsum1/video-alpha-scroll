@@ -3,7 +3,6 @@ import './Test.css';
 import React, { useEffect, useState, useRef } from "react";
 import hub from './Back_lines.png';
 import * as Images from './Anim_png';
-import a  from './2900_CMYK.png';
 import { images } from './Anim_png';
 import movie from './profile.webm';
 
