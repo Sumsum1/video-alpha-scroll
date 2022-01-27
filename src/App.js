@@ -5,7 +5,7 @@ import hub from './Back_lines.png';
 import * as Images from './Anim_png';
 import a  from './2900_CMYK.png';
 import { images } from './Anim_png';
-import movie from './Bathroom.mp4';
+import movie from './profile.webm';
 
 function App() {
 
@@ -16,17 +16,17 @@ function App() {
     const [play1, setPlay1] = useState(false);
     const movieRef = useRef();
 
-    useEffect(() => {
-      if (play1) {
-        movieRef.current.play();
+    // useEffect(() => {
+    //   if (play1) {
+    //     movieRef.current.play();
 
-        //Pause
-        // setTimeout(() => {
-        //   movieRef.current.pause();
-        // })
-      }
+    //     //Pause
+    //     // setTimeout(() => {
+    //     //   movieRef.current.pause();
+    //     // })
+    //   }
          
-    }, [play1])
+    // }, [play1])
 
 
 
@@ -48,21 +48,21 @@ function App() {
 
     const onTimeUpdate = (e) => {
         const c = movieRef.current.currentTime;
-        movieRef.current.currentTime = c + 0.05;
+        movieRef.current.currentTime = c + 0.104;
   }
 
 
-    const onScrollDirection = (e) => {
-      if (e.deltaY > 0) {
-        onTimeUpdate();
-        //setPlay1(true);
-        console.log('up')
-        console.log(play1)
-      }
-      if (e.deltaY < 0) {
-        console.log('down')
-      }
-    }
+    // const onScrollDirection = (e) => {
+    //   if (e.deltaY > 0) {
+    //     onTimeUpdate();
+    //     //setPlay1(true);
+    //     console.log('up')
+    //     console.log(play1)
+    //   }
+    //   if (e.deltaY < 0) {
+    //     console.log('down')
+    //   }
+    // }
 
 
 
@@ -73,10 +73,9 @@ function App() {
             className='video-room' 
             onWheel={onTimeUpdate}  
             muted={true} 
-            //controls  
             ref={movieRef} 
             src={movie} 
-            onTimeUpdate={onTimeUpdate}
+            //onTimeUpdate={onTimeUpdate}
             
             
       >
