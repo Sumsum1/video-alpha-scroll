@@ -40,5 +40,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Heroku Buildpack for create-react-app =====================================",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sumsum1/video-alpha-scroll.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sumsum1/video-alpha-scroll/issues"
+  },
+  "homepage": "https://github.com/Sumsum1/video-alpha-scroll#readme"
 }
