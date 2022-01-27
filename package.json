@@ -20,6 +20,7 @@
   "scripts": {
     "start": "npm start",
     "build": "npm run build",
+    "postinstall": "npm i",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
